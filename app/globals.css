@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f4f2;
+  --foreground: #101820;
 }
 
 @theme inline {
@@ -12,15 +12,332 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main img {
+  filter: grayscale(1);
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.font700 {
+  font-weight: 700;
+}
+
+.h-13 {
+  height: 3.25rem;
+}
+
+.section-label {
+  color: #111111;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.section-label--dark {
+  color: #ffffff;
+}
+
+.how-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.how-flow::before {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 1px;
+  content: "";
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.how-step {
+  position: relative;
+  z-index: 1;
+  min-height: 190px;
+  border-right: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 1.4rem;
+}
+
+.how-step:last-child {
+  border-right: 0;
+}
+
+.how-step span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid #111111;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.how-step strong {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  color: #111111;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.facility-card {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 2px;
+  padding: 2rem;
+}
+
+.facility-card--image {
+  padding: 0;
+  background: #111111;
+}
+
+.facility-card__overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2rem;
+  color: white;
+  background: linear-gradient(180deg, rgba(7, 26, 47, 0), rgba(7, 26, 47, 0.86));
+}
+
+.facility-card__overlay p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.facility-card__overlay h3 {
+  margin: 1rem 0 0;
+  font-size: 2rem;
+  font-weight: 650;
+}
+
+.form-field {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 2px;
+  background: #ffffff;
+  padding: 1rem 1.1rem;
+  color: #111111;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.form-field:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 4px rgba(17, 17, 17, 0.08);
+}
+
+.industrial-visual {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+    linear-gradient(180deg, #3a3a3a 0%, #111111 72%);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3);
+}
+
+.industrial-visual::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 78% 20%, rgba(43, 179, 214, 0.38), transparent 26%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+  opacity: 0.8;
+}
+
+.industrial-visual__machine {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  bottom: 17%;
+  height: 210px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.industrial-visual__machine::before,
+.industrial-visual__machine::after {
+  position: absolute;
+  content: "";
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.industrial-visual__machine::before {
+  left: 10%;
+  top: -62px;
+  width: 54%;
+  height: 62px;
+}
+
+.industrial-visual__machine::after {
+  right: 10%;
+  bottom: -58px;
+  width: 34%;
+  height: 58px;
+}
+
+.industrial-visual__machine span {
+  position: absolute;
+  top: 34px;
+  width: 13%;
+  height: 110px;
+  background: linear-gradient(180deg, rgba(123, 213, 239, 0.88), rgba(43, 179, 214, 0.28));
+}
+
+.industrial-visual__machine span:nth-child(1) {
+  left: 12%;
+}
+
+.industrial-visual__machine span:nth-child(2) {
+  left: 43%;
+}
+
+.industrial-visual__machine span:nth-child(3) {
+  right: 12%;
+}
+
+.industrial-visual__panel {
+  position: absolute;
+  left: 8%;
+  top: 9%;
+  width: min(270px, 72%);
+  border-left: 3px solid #111111;
+  background: rgba(6, 24, 45, 0.82);
+  padding: 1.4rem;
+}
+
+.industrial-visual__panel p {
+  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.industrial-visual__panel strong {
+  display: block;
+  color: white;
+  font-size: 1.35rem;
+}
+
+.industrial-visual__gauge {
+  position: absolute;
+  right: 10%;
+  top: 18%;
+  display: grid;
+  width: 118px;
+  height: 118px;
+  place-items: center;
+  border: 1px solid rgba(123, 213, 239, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.industrial-visual__gauge span {
+  display: grid;
+  width: 74px;
+  height: 74px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  font-weight: 800;
+}
+
+.animate-rise {
+  animation: rise 700ms ease both;
+}
+
+.animate-rise-delayed {
+  animation: rise 850ms ease 120ms both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .how-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .how-flow::before {
+    display: none;
+  }
+
+  .how-step {
+    min-height: 132px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    border-right: 0;
+  }
+
+  .industrial-visual {
+    min-height: 430px;
+  }
+
+  .industrial-visual__gauge {
+    width: 92px;
+    height: 92px;
+  }
+
+  .industrial-visual__gauge span {
+    width: 58px;
+    height: 58px;
+  }
 }
