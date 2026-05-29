@@ -1651,3 +1651,341 @@ h3 {
     display: none;
   }
 }
+
+/* Final production refinements: MachineMetrics-style hero/nav, DIN-style headings, photo-first machine cards. */
+:root {
+  --font-din: "DIN Black", "DIN 2014", "FF DIN", "Barlow Condensed", "Arial Narrow", sans-serif;
+}
+
+h1,
+h2,
+.hero-headline,
+.flow-title {
+  font-family: var(--font-din);
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: -0.018em;
+}
+
+h1 em,
+h2 em,
+.split-word em {
+  font-style: normal;
+}
+
+.navbar {
+  min-height: 96px;
+  padding: 24px var(--section-x);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transition:
+    min-height 260ms ease,
+    padding 260ms ease,
+    background 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    color 260ms ease;
+}
+
+.navbar--scrolled {
+  min-height: 78px;
+  padding: 14px var(--section-x);
+  border-bottom-color: var(--color-border);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 50px rgba(15, 15, 15, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.navbar:not(.navbar--scrolled) .brand strong,
+.navbar:not(.navbar--scrolled) .navbar__links a {
+  color: #ffffff;
+}
+
+.navbar:not(.navbar--scrolled) .brand small {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.navbar:not(.navbar--scrolled) .navbar__links a:hover {
+  color: #ffffff;
+}
+
+.navbar:not(.navbar--scrolled) .nav-cta {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.navbar:not(.navbar--scrolled) .menu-button {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-section {
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 112px 24px 72px;
+  background: #050505;
+  isolation: isolate;
+}
+
+.hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: none !important;
+  transform: translate3d(0, 0, 0) !important;
+  backface-visibility: hidden;
+  will-change: auto;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.58) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.28) 46%, rgba(0, 0, 0, 0.62) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 980px);
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-label {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.hero-headline {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  color: #ffffff;
+  font-size: clamp(46px, 6.65vw, 88px);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.016em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero-headline .text-accent {
+  color: var(--color-primary);
+}
+
+.hero-sub {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.45;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.btn-primary,
+.btn-secondary {
+  min-height: 52px;
+  border-radius: 4px;
+  padding: 15px 30px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.btn-secondary {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  right: 32px;
+  bottom: 30px;
+  left: auto;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.machine-card {
+  min-height: 430px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  background: #090909;
+  box-shadow: none;
+}
+
+.machine-card:hover {
+  border-color: rgba(200, 16, 46, 0.76);
+  border-left-color: rgba(200, 16, 46, 0.76);
+  background: #090909;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+  transform: translateY(-6px);
+}
+
+.machine-card__image {
+  inset: 0;
+  opacity: 1;
+  transform: none;
+}
+
+.machine-card:hover .machine-card__image {
+  opacity: 1;
+  transform: none;
+}
+
+.machine-card__image img {
+  transition: transform 700ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.machine-card:hover .machine-card__image img {
+  transform: scale(1.06);
+}
+
+.machine-card__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.42) 48%, rgba(0, 0, 0, 0.82) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.12) 58%);
+}
+
+.machine-card__number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.machine-card:hover .machine-card__number {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.machine-card__icon {
+  display: none;
+}
+
+.machine-card__copy {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  z-index: 2;
+}
+
+.machine-card h3 {
+  color: #ffffff;
+  font-family: var(--font-din);
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.machine-card p {
+  max-width: 92%;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.78);
+  opacity: 1;
+  transform: none;
+}
+
+.machine-card:hover p {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 82px;
+    padding: 16px var(--section-x);
+  }
+
+  .navbar--scrolled {
+    min-height: 72px;
+    padding: 12px var(--section-x);
+  }
+
+  .hero-section {
+    min-height: 680px;
+    padding-top: 104px;
+  }
+
+  .hero-headline {
+    font-size: clamp(45px, 13vw, 70px);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+  }
+
+  .machine-card {
+    min-height: 360px;
+  }
+}
+
+header.navbar {
+  background-color: transparent !important;
+}
+
+header.navbar.navbar--scrolled {
+  min-height: 78px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  border-bottom-color: var(--color-border) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 18px 50px rgba(15, 15, 15, 0.08) !important;
+}
+
+header.navbar.navbar--scrolled .brand strong,
+header.navbar.navbar--scrolled .navbar__links a {
+  color: var(--color-text) !important;
+}
+
+header.navbar.navbar--scrolled .brand small {
+  color: var(--color-muted) !important;
+}
+
+@media (max-width: 900px) {
+  header.navbar.navbar--scrolled {
+    min-height: 72px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}

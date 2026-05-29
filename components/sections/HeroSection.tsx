@@ -28,9 +28,9 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
 
         <motion.h1
           className="hero-headline"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
+          initial={{ opacity: 0, y: 36, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.75, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           THE <span className="text-accent">PRECISION</span>
           <br />
@@ -41,7 +41,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
 
         <motion.p
           className="hero-sub"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
         >
@@ -52,7 +52,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
 
         <motion.div
           className="hero-ctas"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
         >
@@ -69,8 +69,9 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
         className="hero-scroll-indicator"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        aria-hidden="true"
       >
-        ↓
+        Scroll
       </motion.div>
     </section>
   );

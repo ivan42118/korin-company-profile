@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 
 type SplitHeadlineProps = {
   text: string;
+  /** Kept for backwards compatibility with existing section calls. */
   italic?: string;
   className?: string;
 };
 
-export function SplitHeadline({ text, italic, className }: SplitHeadlineProps) {
+export function SplitHeadline({ text, className }: SplitHeadlineProps) {
   const words = text.split(" ");
 
   return (
@@ -20,8 +21,6 @@ export function SplitHeadline({ text, italic, className }: SplitHeadlineProps) {
       variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
     >
       {words.map((word, index) => {
-        const clean = word.replace(/[.,?]/g, "");
-        const isItalic = italic?.split(" ").includes(clean);
         return (
           <motion.span
             key={`${word}-${index}`}
@@ -35,7 +34,7 @@ export function SplitHeadline({ text, italic, className }: SplitHeadlineProps) {
               },
             }}
           >
-            {isItalic ? <em>{word}</em> : word}
+            {word}
           </motion.span>
         );
       })}
