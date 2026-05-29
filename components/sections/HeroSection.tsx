@@ -23,7 +23,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          EST. - PRECISION MANUFACTURING
+          EST.1999 - PRECISION MANUFACTURING
         </motion.p>
 
         <motion.h1
@@ -32,11 +32,10 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.75, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          THE <span className="text-accent">PRECISION</span>
+          THE PARTS
           <br />
-          FACTORY OF
+           BEHIND EVERY <span className="text-accent">GREAT</span>SHOE
           <br />
-          INDONESIA.
         </motion.h1>
 
         <motion.p
