@@ -11,7 +11,7 @@ export function WorkflowSection() {
       <div className="section-shell workflow-grid">
         <Reveal className="workflow-sticky">
           <p className="label">How We Work</p>
-          <SplitHeadline text="From concept to delivery." italic="concept" />
+          <SplitHeadline text="From concept to delivery." />
           <p>
             Every project moves through a controlled nine-step process, from requirement capture to packing and shipment.
           </p>
