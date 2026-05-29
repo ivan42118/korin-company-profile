@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Barlow_Condensed, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlow = Barlow({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "PT Korin Technomic | Manufacturing Partner",
+  title: "PT Korin Technomic | Precision Plastic Injection Manufacturing",
   description:
-    "Footwear component, plastic injection, and synthetic rattan manufacturing partner in Indonesia since 1999.",
+    "PT Korin Technomic is an Indonesian plastic injection molding manufacturer for footwear components, industrial parts, synthetic rattan, and mass production programs.",
 };
 
 export default function RootLayout({
@@ -24,11 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
