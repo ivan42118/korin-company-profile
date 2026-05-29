@@ -44,9 +44,9 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.55 }}
         >
-          Plastic injection molding manufacturer serving footwear,
+          Precision-manufactured footwear components & synthetic rattan,
           <br />
-          industrial, and consumer goods sectors across Indonesia.
+          trusted by leading brands since 1999.
         </motion.p>
 
         <motion.div
