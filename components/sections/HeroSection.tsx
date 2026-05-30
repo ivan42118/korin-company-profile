@@ -34,7 +34,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
         >
           THE PARTS
           <br />
-           BEHIND EVERY <span className="text-accent">GREAT</span>SHOE
+          BEHIND EVERY <span className="text-accent">GREAT</span> SHOE.
           <br />
         </motion.h1>
 

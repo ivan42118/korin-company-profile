@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { facilitiesImages } from "../../content";
+import { facilitiesImages, site } from "../../content";
 import { Lightbox } from "../ui/Lightbox";
 import { Reveal } from "../ui/Reveal";
 import { SplitHeadline } from "../ui/SplitHeadline";
@@ -26,7 +26,7 @@ export function FacilitiesSection({ images = facilitiesImages }: FacilitiesSecti
       <div className="section-shell">
         <Reveal className="section-heading">
           <p className="label">Our Facilities</p>
-          <SplitHeadline text="Where precision comes to life." italic="precision" />
+          <SplitHeadline text="Where precision comes to life." />
         </Reveal>
       </div>
 
@@ -35,7 +35,7 @@ export function FacilitiesSection({ images = facilitiesImages }: FacilitiesSecti
           <Image src={images[0].src} alt={images[0].alt} fill sizes="100vw" className="object-cover" />
         </motion.div>
         <div className="facility-hero__overlay">
-          <p className="label">Cirebon, West Java - Indonesia</p>
+          <p className="label">{site.facilityLabel}</p>
           <h3>Production floors built for controlled manufacturing, quality checks, and repeatable output.</h3>
         </div>
       </div>

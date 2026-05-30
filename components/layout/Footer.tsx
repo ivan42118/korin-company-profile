@@ -36,6 +36,7 @@ export function Footer() {
         <div>
           <h3>Contact</h3>
           <span>{site.address}</span>
+          <span>{site.addressCirebon}</span>
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <span>{site.phone}</span>
           <span>{site.hours}</span>

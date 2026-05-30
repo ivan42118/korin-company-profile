@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 
 type SplitHeadlineProps = {
   text: string;
-  /** Kept for backwards compatibility with existing section calls. */
-  italic?: string;
   className?: string;
 };
 

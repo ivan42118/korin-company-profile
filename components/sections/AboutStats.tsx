@@ -9,7 +9,7 @@ export function AboutStats() {
       <div className="section-shell about-grid">
         <Reveal>
           <p className="label">About Us</p>
-          <SplitHeadline text="Precision manufacturing for a demanding world." italic="demanding" />
+          <SplitHeadline text="Precision manufacturing for a demanding world." />
           <p>
             PT Korin Technomic is a specialized manufacturer of plastic injection components, serving the footwear,
             industrial, and consumer goods sectors across Indonesia and beyond. With state-of-the-art machinery and a

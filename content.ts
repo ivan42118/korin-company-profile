@@ -12,7 +12,6 @@ import {
   Settings2,
   ShieldCheck,
   Sparkles,
-  Truck,
   Workflow,
   Wrench,
 } from "lucide-react";
@@ -20,16 +19,18 @@ import {
 export const site = {
   name: "PT Korin Technomic",
   email: "info@korintechnomic.com",
-  phone: "(placeholder)",
-  address: "Cirebon, West Java, Indonesia",
+  phone: "(021) 5986501",
+  address: "Desa Cukanggalih RT.04 RW.02, Kec. Curug, Kab. Tangerang, Banten",
+  addressCirebon: "Blok Mirok RT.005/RW.003, Kepuh, Kec. Palimanan, Kab. Cirebon 45161",
+  facilityLabel: "Tangerang & Cirebon - Indonesia",
   hours: "Mon-Fri 08:00-17:00 WIB",
   heroVideoSrc: "/video_hero.mp4",
 };
 
 export const navLinks = [
-  { label: "Capabilities", href: "#capabilities" },
-  { label: "Products", href: "#products" },
   { label: "Machines", href: "#machines" },
+  { label: "Products", href: "#products" },
+  { label: "Workflow", href: "#workflow" },
   { label: "Facilities", href: "#facilities" },
   { label: "Contact", href: "#contact" },
 ];
@@ -126,20 +127,11 @@ export const workflow = [
 
 export const facilitiesImages = [
   { src: "/halaman_depan_gerbang_tangerang.jpg", alt: "PT Korin Technomic factory gate" },
-  { src: "/gerbang-depan-pabrik (1).jpg", alt: "PT Korin Technomic exterior" },
+  { src: "/area-machine-injection (14).jpg", alt: "PT Korin Technomic production exterior" },
   { src: "/area-machine-injection (12).jpg", alt: "Injection production floor" },
   { src: "/area_mesin_injection_tangeraang (1).jpg", alt: "Injection machine area" },
   { src: "/mesin_rotary (1).jpg", alt: "Rotary production machine" },
   { src: "/LAB_AREA.jpeg", alt: "Quality laboratory area" },
-];
-
-export const whyKorin = [
-  { title: "Integrated Production", description: "From mold design to final assembly, controlled by one production team.", Icon: Workflow },
-  { title: "11 Machine Types", description: "Comprehensive manufacturing capabilities under one roof.", Icon: Factory },
-  { title: "Quality Assurance", description: "Inspection and documented quality verification throughout the workflow.", Icon: ShieldCheck },
-  { title: "Engineering Expertise", description: "DFM thinking and production review before scale-up.", Icon: PenTool },
-  { title: "On-Time Delivery", description: "Standardized packing and reliable shipping schedules.", Icon: Truck },
-  { title: "Scalable Volume", description: "Prototype runs to high-volume mass production.", Icon: Boxes },
 ];
 
 export const footerProducts = [

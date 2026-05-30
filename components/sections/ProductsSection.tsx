@@ -9,7 +9,7 @@ export function ProductsSection() {
       <div className="section-shell">
         <Reveal className="section-heading">
           <p className="label">Our Products</p>
-          <SplitHeadline text="Components made for every application." italic="made" />
+          <SplitHeadline text="Components made for every application." />
         </Reveal>
         <div className="products-grid">
           {products.map((product) => (

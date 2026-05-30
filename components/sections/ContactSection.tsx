@@ -59,7 +59,7 @@ export function ContactSection() {
       <div className="section-shell contact-grid">
         <Reveal>
           <p className="label">Get In Touch</p>
-          <SplitHeadline text="Ready to Start Your Project?" italic="Start" />
+          <SplitHeadline text="Ready to Start Your Project?" />
           <p>
             Tell us about your requirements. Our engineering team will get back to you within 24 hours.
           </p>

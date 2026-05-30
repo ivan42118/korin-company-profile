@@ -7,7 +7,6 @@ import { HeroSection } from "../components/sections/HeroSection";
 import { MachinesSection } from "../components/sections/MachinesSection";
 import { ProductionFlowSection } from "../components/sections/ProductionFlowSection";
 import { ProductsSection } from "../components/sections/ProductsSection";
-import { WhyKorin } from "../components/sections/WhyKorin";
 import { WorkflowSection } from "../components/sections/WorkflowSection";
 import { LenisProvider } from "../components/ui/LenisProvider";
 import { MarqueeText } from "../components/ui/MarqueeText";
@@ -26,12 +25,11 @@ export default function Home() {
         <HeroSection videoSrc={site.heroVideoSrc} />
         <MarqueeText />
         <AboutStats />
+        <MachinesSection />
         <ProductionFlowSection />
         <ProductsSection />
-        <MachinesSection />
         <WorkflowSection />
         <FacilitiesSection />
-        <WhyKorin />
         <ContactSection />
       </main>
       <Footer />
