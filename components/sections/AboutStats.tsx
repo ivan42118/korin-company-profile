@@ -5,19 +5,9 @@ import { SplitHeadline } from "../ui/SplitHeadline";
 
 export function AboutStats() {
   return (
-    <section className="about-section">
-      <div className="section-shell about-grid">
-        <Reveal>
-          <p className="label">About Us</p>
-          <SplitHeadline text="Precision manufacturing for a demanding world." />
-          <p>
-            PT Korin Technomic is a specialized manufacturer of plastic injection components, serving the footwear,
-            industrial, and consumer goods sectors across Indonesia and beyond. With state-of-the-art machinery and a
-            skilled engineering team, we deliver components that meet demanding specifications.
-          </p>
-          <a href="#workflow" className="text-link">Learn More <span>-&gt;</span></a>
-        </Reveal>
-        <div className="stats-grid">
+    <>
+      <section id="stats" className="stats-section">
+        <div className="section-shell stats-section__grid">
           {stats.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.06}>
               <article className="stat-card">
@@ -27,7 +17,20 @@ export function AboutStats() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="about" className="about-section">
+        <Reveal className="section-shell about-copy">
+          <p className="label">About Us</p>
+          <SplitHeadline text="Precision manufacturing for a demanding world." />
+          <p>
+            PT Korin Technomic is a specialized manufacturer of plastic injection components, serving the footwear,
+            industrial, and consumer goods sectors across Indonesia and beyond. With state-of-the-art machinery and a
+            skilled engineering team, we deliver components that meet demanding specifications.
+          </p>
+          <a href="#machines" className="text-link">View Machines <span>-&gt;</span></a>
+        </Reveal>
+      </section>
+    </>
   );
 }

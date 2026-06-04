@@ -1,6 +1,28 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const din = localFont({
+  variable: "--font-din",
+  src: [
+    {
+      path: "../assets/fonts/DIN-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/DIN-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/DIN-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+});
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-display",
@@ -32,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${din.variable} ${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
       <body>{children}</body>
     </html>
   );

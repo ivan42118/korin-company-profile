@@ -91,7 +91,7 @@ h2,
 .hero-headline,
 .flow-title {
   color: var(--color-text);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-style: normal;
   font-weight: 900;
   letter-spacing: -0.018em;
@@ -265,7 +265,7 @@ p {
 
 .page-curtain span {
   color: var(--color-text);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: clamp(54px, 9vw, 140px);
   font-weight: 900;
   font-style: normal;
@@ -410,7 +410,7 @@ p {
 
 .mobile-menu a {
   color: var(--color-text);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: clamp(44px, 12vw, 82px);
   font-weight: 900;
   line-height: 0.95;
@@ -555,6 +555,7 @@ p {
   content: "—";
 }
 
+.stats-section,
 .about-section,
 .products-section,
 .machines-section,
@@ -565,32 +566,36 @@ p {
   padding: clamp(5rem, 10vw, 9rem) 0;
 }
 
-.about-section,
+.stats-section,
 .machines-section {
   background: var(--color-surface);
 }
 
+.about-section,
 .products-section,
 .workflow-section,
 .facilities-section {
   background: #ffffff;
 }
 
-.about-grid {
+.stats-section__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: clamp(3rem, 8vw, 7rem);
-  align-items: start;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.about-grid h2,
+.about-copy {
+  max-width: 920px;
+}
+
+.about-copy h2,
 .section-heading h2,
 .workflow-sticky h2,
 .contact-grid h2 {
   margin-top: 1rem;
 }
 
-.about-grid p,
+.about-copy p,
 .section-heading p,
 .workflow-sticky p,
 .contact-grid p {
@@ -628,12 +633,6 @@ p {
 }
 
 /* Stats */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
 .stat-card {
   min-height: 190px;
   border: 1px solid var(--color-border);
@@ -654,7 +653,7 @@ p {
 .stat-card strong {
   display: block;
   color: var(--color-primary);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: clamp(3rem, 5vw, 4.4rem);
   font-weight: 900;
   line-height: 1;
@@ -817,7 +816,7 @@ p {
 
 .machine-card h3 {
   color: #ffffff;
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: clamp(1.35rem, 2vw, 1.7rem);
   font-weight: 900;
   line-height: 1;
@@ -876,7 +875,7 @@ p {
   display: block;
   margin-bottom: 16px;
   color: var(--color-primary);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
@@ -1027,7 +1026,7 @@ p {
   right: 1rem;
   bottom: -1.2rem;
   color: rgba(15, 15, 15, 0.05);
-  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
   font-size: 100px;
   font-weight: 900;
   line-height: 1;
@@ -1385,7 +1384,6 @@ p {
     display: inline-grid;
   }
 
-  .about-grid,
   .workflow-grid,
   .contact-grid,
   .section-heading--split {
@@ -1397,6 +1395,7 @@ p {
   }
 
   .products-grid,
+  .stats-section__grid,
   .machines-grid,
   .facility-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1464,7 +1463,7 @@ p {
     width: 100%;
   }
 
-  .stats-grid,
+  .stats-section__grid,
   .products-grid,
   .machines-grid,
   .facility-gallery,
@@ -1490,3 +1489,4 @@ p {
     display: none;
   }
 }
+

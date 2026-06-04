@@ -14,7 +14,7 @@ The app uses the Next.js App Router.
 
 - `app/layout.tsx` defines the root HTML document, metadata, global fonts, and imports `app/globals.css`.
 - `app/page.tsx` composes the full landing page from layout, section, and UI components.
-- `content.ts` centralizes most site data: company contact details, nav links, marquee copy, stats, products, machines, workflow steps, facility images, and footer product links.
+- `content.ts` centralizes most site data: company contact details, nav links, stats, products, machines, archived workflow steps, facility images, and footer product links.
 - `components/layout` contains global layout pieces: navbar and footer.
 - `components/sections` contains full-page or page-band sections.
 - `components/ui` contains reusable presentation and animation primitives.
@@ -39,6 +39,7 @@ The page is statically prerendered.
 - Lenis `1.3.23` for smooth scrolling
 - Lucide React `1.16.0` for icons
 - `next/image` for optimized local images
+- `next/font/local` for self-hosted DIN
 - `next/font/google` for Barlow, Barlow Condensed, and Space Mono
 - ESLint `9` with `eslint-config-next`
 - Turbopack production build through `next build`
@@ -55,12 +56,9 @@ Next.js local docs were checked in `node_modules/next/dist/docs/`, including the
 4. `Navbar`
 5. `main`
    - `HeroSection`
-   - `MarqueeText`
    - `AboutStats`
    - `MachinesSection`
-   - `ProductionFlowSection`
    - `ProductsSection`
-   - `WorkflowSection`
    - `FacilitiesSection`
    - `ContactSection`
 6. `Footer`
@@ -97,17 +95,9 @@ The top-level page is a Server Component by default, while interactive pieces ar
   - Uses `MachineCard`.
   - Styled as photo-first dark image cards.
 
-- `ProductionFlowSection`
-  - Animated production narrative after the machine context.
-  - Includes animated SVG factory illustration, workflow progress card, and quality metrics card.
-
 - `ProductsSection`
   - Data-driven grid from `products` in `content.ts`.
   - Uses `ProductCard`.
-
-- `WorkflowSection`
-  - Nine-step process timeline from `workflow` in `content.ts`.
-  - Sticky left copy and animated right-side workflow list.
 
 - `FacilitiesSection`
   - Facility hero image with scroll parallax.
@@ -128,8 +118,6 @@ The top-level page is a Server Component by default, while interactive pieces ar
   - Fullscreen image preview with previous/next and keyboard navigation.
 - `MachineCard`
   - Photo card for machine capability data.
-- `MarqueeText`
-  - Repeats capability text in an infinite CSS marquee.
 - `PageCurtain`
   - Initial page-load white curtain animation with `KORIN` text.
 - `ProductCard`
@@ -146,6 +134,10 @@ Removed during cleanup:
 - Unused custom cursor component.
 - Duplicative value-proposition section.
 
+Archived for possible future reuse:
+
+- `components/_archive/WorkflowSection.tsx`
+
 ## Data Model
 
 Most content is plain exported arrays/objects in `content.ts`:
@@ -153,17 +145,17 @@ Most content is plain exported arrays/objects in `content.ts`:
 - `site`
   - Name, email, phone, Tangerang address, Cirebon address, facility label, hours, and hero video path.
 - `navLinks`
-  - Anchor links for machines, products, workflow, facilities, and contact.
+  - Anchor links for about, machines, products, facilities, and contact.
 - `marqueeItems`
   - Manufacturing capability phrases.
 - `stats`
-  - Animated metric cards.
+  - Animated metric cards. Current active machine count is `10+` after removing Pon Machine.
 - `products`
   - Product tag, name, description, and image path.
 - `machines`
   - Machine name, description, image path, and Lucide icon reference.
 - `workflow`
-  - Process title, description, and Lucide icon reference.
+  - Archived process data retained for future reuse with `components/_archive/WorkflowSection.tsx`.
 - `facilitiesImages`
   - Facility gallery source paths and alt text.
 - `footerProducts`
@@ -219,11 +211,12 @@ Additional recurring colors:
 
 Fonts are defined in `app/layout.tsx` through `next/font/google`:
 
-- Display: Barlow Condensed via `--font-display`
+- DIN: self-hosted DIN Regular, Bold, and Black via `--font-din`
+- Display fallback: Barlow Condensed via `--font-display`
 - Body: Barlow via `--font-body`
 - Mono: Space Mono via `--font-mono`
 
-The previous unmounted DIN fallback stack was removed. Headings now explicitly use Barlow Condensed through `--font-display`.
+Headings and display titles now use the self-hosted DIN family through `--font-din`, with Barlow Condensed as fallback. `h1`, `h2`, `.hero-headline`, and `.flow-title` use DIN Black weight `900`.
 
 ### Animation Patterns
 
@@ -233,8 +226,6 @@ The previous unmounted DIN fallback stack was removed. Headings now explicitly u
 - Word-level heading reveals via `SplitHeadline`.
 - Hero mount animations.
 - Animated stats via `AnimatedNumber`.
-- Timeline line reveal in `WorkflowSection`.
-- Animated SVG and metric bars in `ProductionFlowSection`.
 - Facility parallax in `FacilitiesSection`.
 - Lightbox fade/scale transitions.
 - Hover lift/scale effects on cards.
@@ -248,30 +239,21 @@ The previous unmounted DIN fallback stack was removed. Headings now explicitly u
 - Centered headline and CTAs.
 - Transparent nav overlays this section before scroll.
 
-### Marquee
+### Stats
 
-- Black strip with repeated manufacturing terms.
+- Four animated metric cards.
 
-### About / Stats
+### About
 
-- Split grid with intro copy and four animated stats.
+- Focused company intro copy.
 
 ### Machines
 
-- Manufacturing capability grid with 11 machine cards.
-
-### Production Flow
-
-- White section with centered header and three alternating feature rows.
-- Includes custom SVG/metric visualizations.
+- Manufacturing capability grid with 10 machine cards.
 
 ### Products
 
 - Product catalog grid from `content.ts`.
-
-### Workflow
-
-- Nine-step operational process timeline.
 
 ### Facilities
 
@@ -316,6 +298,7 @@ Working:
 - ESLint succeeds with `npm.cmd run lint`.
 - Static route `/` is prerendered.
 - Main section structure is implemented.
+- Current homepage structure is `Hero -> Stats -> About -> Machines -> Products -> Facilities -> Contact`.
 - Responsive CSS exists for desktop, tablet, and mobile breakpoints.
 - Client-side animations and smooth scrolling are wired.
 - Contact form has frontend validation and simulated submission feedback.
@@ -351,7 +334,7 @@ Medium priority:
 
 1. Audit image sizes and formats for performance; many images are large product/factory photos.
 2. Review all marketing copy with the business team for accuracy and specificity.
-3. Decide whether `ProductionFlowSection` should remain standalone or be merged into `WorkflowSection` in a later content pass.
+3. Decide whether the archived `WorkflowSection` should be restored, reused elsewhere, or left archived after stakeholder review.
 
 Lower priority:
 

@@ -8,7 +8,6 @@ import {
   PackageCheck,
   PenTool,
   Repeat2,
-  Ruler,
   Settings2,
   ShieldCheck,
   Sparkles,
@@ -28,9 +27,9 @@ export const site = {
 };
 
 export const navLinks = [
+  { label: "About", href: "#about" },
   { label: "Machines", href: "#machines" },
   { label: "Products", href: "#products" },
-  { label: "Workflow", href: "#workflow" },
   { label: "Facilities", href: "#facilities" },
   { label: "Contact", href: "#contact" },
 ];
@@ -48,8 +47,8 @@ export const marqueeItems = [
 ];
 
 export const stats = [
-  { value: "11+", label: "Production Machines", numeric: 11, suffix: "+" },
-  { value: "9", label: "Manufacturing Processes", numeric: 9, suffix: "" },
+  { value: "10+", label: "Production Machines", numeric: 10, suffix: "+" },
+  { value: "8", label: "Manufacturing Processes", numeric: 8, suffix: "" },
   { value: "100%", label: "Quality Verified", numeric: 100, suffix: "%" },
   { value: "24h", label: "Response Target", numeric: 24, suffix: "h" },
 ];
@@ -105,7 +104,6 @@ export const machines = [
   { name: "EVA Machine", description: "Foam component forming", image: "/eva-machine (1).jpg", Icon: Layers3 },
   { name: "Extruder Sheet Machine", description: "Sheet material production", image: "/mesin_extruder_sheet (1).jpg", Icon: Boxes },
   { name: "Pad Print Machine", description: "Surface marking & branding", image: "/mesin_pad_print (1).jpg", Icon: PenTool },
-  { name: "Pon Machine", description: "Cutting & punching", image: "/mesin_pon (2).jpg", Icon: Ruler },
   { name: "Puring Machine", description: "Pouring & casting process", image: "/mesin_puring (1).jpg", Icon: Sparkles },
   { name: "Rotary Machine", description: "Multi-station production", image: "/mesin_rotary (1).jpg", Icon: Repeat2 },
   { name: "Tebok Machine", description: "Precision perforation", image: "/mesin_tebok (1).jpg", Icon: Settings2 },
