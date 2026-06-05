@@ -584,6 +584,24 @@ p {
   gap: 1rem;
 }
 
+.stats-section__header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.65fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 5vw, 3.75rem);
+}
+
+.stats-section__header h2 {
+  margin-top: 1rem;
+  max-width: 760px;
+}
+
+.stats-section__header p:last-child {
+  max-width: 520px;
+  color: var(--color-text-body);
+}
+
 .about-copy {
   max-width: 920px;
 }
@@ -634,14 +652,43 @@ p {
 
 /* Stats */
 .stat-card {
-  min-height: 190px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 320px;
+  flex-direction: column;
+  justify-content: flex-end;
   border: 1px solid var(--color-border);
   background: #ffffff;
-  padding: 1.25rem;
+  padding: 1.4rem;
   transition:
     transform 0.3s var(--ease-out),
     box-shadow 0.3s ease,
     border-color 0.3s ease;
+}
+
+.stat-card::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background:
+    linear-gradient(135deg, rgba(200, 16, 46, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(27, 58, 107, 0.06), transparent 52%);
+  transition: opacity 0.3s ease;
+}
+
+.stat-card::after {
+  position: absolute;
+  right: -38px;
+  bottom: -58px;
+  width: 148px;
+  height: 148px;
+  border: 1px solid rgba(200, 16, 46, 0.18);
+  border-radius: 999px;
+  content: "";
+  transition: transform 0.35s var(--ease-out), border-color 0.3s ease;
 }
 
 .stat-card:hover {
@@ -650,23 +697,57 @@ p {
   transform: translateY(-6px);
 }
 
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover::after {
+  border-color: rgba(200, 16, 46, 0.34);
+  transform: scale(1.1);
+}
+
+.stat-card__index {
+  position: absolute;
+  top: 1.35rem;
+  left: 1.35rem;
+  color: #c7c7c4;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
 .stat-card strong {
+  position: relative;
+  z-index: 1;
   display: block;
   color: var(--color-primary);
   font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
-  font-size: clamp(3rem, 5vw, 4.4rem);
+  font-size: clamp(3.7rem, 6.2vw, 6.4rem);
   font-weight: 900;
-  line-height: 1;
+  letter-spacing: -0.04em;
+  line-height: 0.82;
 }
 
-.stat-card span:last-child {
+.stat-card__label {
+  position: relative;
+  z-index: 1;
   display: block;
-  margin-top: 1rem;
-  color: var(--color-muted);
+  margin-top: 1.15rem;
+  color: var(--color-text);
   font-family: var(--font-mono), monospace;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.stat-card p {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 /* Products */
@@ -1386,6 +1467,7 @@ p {
 
   .workflow-grid,
   .contact-grid,
+  .stats-section__header,
   .section-heading--split {
     grid-template-columns: 1fr;
   }
@@ -1475,6 +1557,14 @@ p {
   .product-card,
   .machine-card {
     min-height: 360px;
+  }
+
+  .stat-card {
+    min-height: 280px;
+  }
+
+  .stat-card strong {
+    font-size: clamp(3.4rem, 18vw, 5.2rem);
   }
 
   .workflow-step {

@@ -87,7 +87,8 @@ The top-level page is a Server Component by default, while interactive pieces ar
   - Current headline: `THE PARTS BEHIND EVERY GREAT SHOE.`
 
 - `AboutStats`
-  - Company intro copy plus animated statistic cards.
+  - Manufacturing snapshot stats followed by company intro copy.
+  - Stats include a section header, indexed metric cards, large animated DIN numbers, labels, and short explanatory descriptions.
   - Uses `AnimatedNumber`, `Reveal`, and `SplitHeadline`.
 
 - `MachinesSection`
@@ -149,7 +150,7 @@ Most content is plain exported arrays/objects in `content.ts`:
 - `marqueeItems`
   - Manufacturing capability phrases.
 - `stats`
-  - Animated metric cards. Current active machine count is `10+` after removing Pon Machine.
+  - Animated metric cards with descriptions. Current active machine count is `10+` after removing Pon Machine.
 - `products`
   - Product tag, name, description, and image path.
 - `machines`
@@ -241,7 +242,7 @@ Headings and display titles now use the self-hosted DIN family through `--font-d
 
 ### Stats
 
-- Four animated metric cards.
+- Manufacturing Snapshot section with header copy and four animated metric cards.
 
 ### About
 

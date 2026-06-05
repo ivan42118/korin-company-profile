@@ -47,10 +47,34 @@ export const marqueeItems = [
 ];
 
 export const stats = [
-  { value: "10+", label: "Production Machines", numeric: 10, suffix: "+" },
-  { value: "8", label: "Manufacturing Processes", numeric: 8, suffix: "" },
-  { value: "100%", label: "Quality Verified", numeric: 100, suffix: "%" },
-  { value: "24h", label: "Response Target", numeric: 24, suffix: "h" },
+  {
+    value: "10+",
+    label: "Production Machines",
+    description: "Integrated machine types supporting injection, EVA, extrusion, printing, and finishing work.",
+    numeric: 10,
+    suffix: "+",
+  },
+  {
+    value: "8",
+    label: "Manufacturing Processes",
+    description: "A connected production setup from material preparation to controlled final output.",
+    numeric: 8,
+    suffix: "",
+  },
+  {
+    value: "100%",
+    label: "Quality Verified",
+    description: "Inspection checkpoints are built into the workflow before products move to delivery.",
+    numeric: 100,
+    suffix: "%",
+  },
+  {
+    value: "24h",
+    label: "Response Target",
+    description: "Inquiry response target for new production, tooling, and component discussions.",
+    numeric: 24,
+    suffix: "h",
+  },
 ];
 
 export const products = [

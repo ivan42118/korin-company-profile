@@ -7,15 +7,27 @@ export function AboutStats() {
   return (
     <>
       <section id="stats" className="stats-section">
-        <div className="section-shell stats-section__grid">
-          {stats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.06}>
-              <article className="stat-card">
-                <strong><AnimatedNumber value={stat.numeric} suffix={stat.suffix} /></strong>
-                <span>{stat.label}</span>
-              </article>
-            </Reveal>
-          ))}
+        <div className="section-shell">
+          <Reveal className="stats-section__header">
+            <p className="label">Manufacturing Snapshot</p>
+            <h2>Built for precise production.</h2>
+            <p>
+              A quick look at Korin&apos;s production capacity, process coverage, quality control, and response rhythm.
+            </p>
+          </Reveal>
+
+          <div className="stats-section__grid">
+            {stats.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 0.06}>
+                <article className="stat-card">
+                  <span className="stat-card__index">{String(index + 1).padStart(2, "0")}</span>
+                  <strong><AnimatedNumber value={stat.numeric} suffix={stat.suffix} /></strong>
+                  <span className="stat-card__label">{stat.label}</span>
+                  <p>{stat.description}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
