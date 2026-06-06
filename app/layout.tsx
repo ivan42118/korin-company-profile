@@ -92,7 +92,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${din.variable} ${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a href="#top" className="skip-link">
+          Lewati ke konten
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

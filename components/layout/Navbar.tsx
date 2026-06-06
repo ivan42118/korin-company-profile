@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import logoKorin from "../../assets/logo-korin.png";
 import { navLinks } from "../../content";
@@ -21,25 +22,25 @@ export function Navbar() {
   return (
     <>
       <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-        <a href="#top" className="brand" aria-label="PT Korin Technomic home">
+        <Link href="/" className="brand" aria-label="PT Korin Technomic home">
           <Image src={logoKorin} alt="" width={52} height={52} priority />
           <span>
             <strong>KORIN</strong>
             <small>TECHNOMIC</small>
           </span>
-        </a>
+        </Link>
 
         <nav className="navbar__links" aria-label="Primary navigation">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
+            <Link key={link.href} href={link.href}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a href="#contact" className="nav-cta">
+        <Link href="/#contact" className="nav-cta">
           Start Inquiry <span aria-hidden="true">-&gt;</span>
-        </a>
+        </Link>
 
         <button className="menu-button" onClick={() => setOpen(true)} aria-label="Open menu">
           <Menu size={24} />
@@ -54,16 +55,16 @@ export function Navbar() {
             </button>
             <nav>
               {navLinks.map((link, index) => (
-                <motion.a
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.06 }}
                 >
-                  {link.label}
-                </motion.a>
+                  <Link href={link.href} onClick={() => setOpen(false)}>
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

@@ -1,4 +1,4 @@
-import {
+content = '''import {
   BadgeCheck,
   Boxes,
   Factory,
@@ -166,7 +166,7 @@ export const catalogProducts = [
 ];
 
 export const machines = [
-  { name: "Injection Machine", slug: "injection-machine", description: "Core molding process", fullDescription: "Our high-precision injection molding machines form the heart of Korin's production floor. Running multi-cavity molds under controlled temperature and pressure, they deliver consistent, repeatable output across heel counters, toe caps, shanks, and accessories at high volume with tight dimensional tolerances.", image: "/area-machine-injection (12).jpg", galleryImages: ["/area-machine-injection (12).jpg", "/area-machine-injection (13).jpg", "/area-machine-injection (14).jpg", "/area-machine-injection (7).jpg"], capabilities: ["Multi-cavity mold compatibility", "High-volume repeatable output", "Tight dimensional tolerance control", "Material flexibility across thermoplastics"], producedCategoryIds: ["heel-components", "toe-caps", "shanks-accessories"], Icon: Factory },
+  { name: "Injection Machine", slug: "injection-machine", description: "Core molding process", fullDescription: "Our high-precision injection molding machines form the heart of Korin\'s production floor. Running multi-cavity molds under controlled temperature and pressure, they deliver consistent, repeatable output across heel counters, toe caps, shanks, and accessories at high volume with tight dimensional tolerances.", image: "/area-machine-injection (12).jpg", galleryImages: ["/area-machine-injection (12).jpg", "/area-machine-injection (13).jpg", "/area-machine-injection (14).jpg", "/area-machine-injection (7).jpg"], capabilities: ["Multi-cavity mold compatibility", "High-volume repeatable output", "Tight dimensional tolerance control", "Material flexibility across thermoplastics"], producedCategoryIds: ["heel-components", "toe-caps", "shanks-accessories"], Icon: Factory },
   { name: "Braiding Machine", slug: "braiding-machine", description: "Reinforcement & weaving", fullDescription: "The braiding machines at Korin produce synthetic rattan strands used in furniture, outdoor, and decorative applications. Each strand is woven under precise tension for consistent diameter, strength, and surface finish.", image: "/mesin_braiding.jpg", galleryImages: ["/mesin_braiding.jpg", "/mesin_braiding (2).jpg"], capabilities: ["Multi-strand weaving configurations", "Consistent strand diameter control", "UV-resistant material compatibility", "Custom color and finish options"], producedCategoryIds: ["synthetic-rattan"], Icon: Workflow },
   { name: "EVA Machine", slug: "eva-machine", description: "Foam component forming", fullDescription: "EVA molding machines compress and form lightweight foam components under heat and pressure. Korin uses these for midsoles, insoles, and specialty foam elements across a wide range of footwear brands with consistent density and dimensional accuracy.", image: "/eva-machine (1).jpg", galleryImages: ["/eva-machine (1).jpg"], capabilities: ["Variable density foam forming", "Complex geometry EVA molding", "Surface texture and color options", "High-volume batch production"], producedCategoryIds: ["eva-components"], Icon: Layers3 },
   { name: "Extruder Sheet Machine", slug: "extruder-sheet-machine", description: "Sheet material production", fullDescription: "Extruder sheet machines produce the base material for quarter sections, heel stiffeners, and sheet-based footwear components. Sheets are extruded to precise thickness, cooled, and cut to spec ready for downstream forming or decoration.", image: "/mesin_extruder_sheet (1).jpg", galleryImages: ["/mesin_extruder_sheet (1).jpg", "/mesin_extruder_sheet (2).jpg", "/mesin_extruder_sheet (3).jpg", "/mesin_extruder_sheet (4).jpg"], capabilities: ["Controlled sheet thickness extrusion", "Multi-material sheet compatibility", "Continuous production output", "Custom width and roll formats"], producedCategoryIds: ["sheet-materials", "heel-components"], Icon: Boxes },
@@ -184,7 +184,7 @@ export const facilities = [
     name: "Tangerang",
     label: "Main Facility",
     address: "Desa Cukanggalih RT.04 RW.02, Kec. Curug, Kab. Tangerang, Banten",
-    description: "Our main production facility in Tangerang houses the majority of Korin's injection, EVA, braiding, and printing machinery. The Tangerang plant operates Monday through Friday and serves as the primary hub for client sample production and mass manufacturing.",
+    description: "Our main production facility in Tangerang houses the majority of Korin\'s injection, EVA, braiding, and printing machinery. The Tangerang plant operates Monday through Friday and serves as the primary hub for client sample production and mass manufacturing.",
     heroImage: "/halaman_depan_gerbang_tangerang.jpg",
     gallery: [
       { src: "/area-machine-injection (14).jpg", alt: "Injection production exterior" },
@@ -199,7 +199,7 @@ export const facilities = [
     name: "Cirebon",
     label: "Secondary Facility",
     address: "Blok Mirok RT.005/RW.003, Kepuh, Kec. Palimanan, Kab. Cirebon 45161",
-    description: "The Cirebon facility expands Korin's production reach into West Java, supporting overflow capacity and specialized production lines. It handles select injection and sheet processes with the same quality standards maintained across both plants.",
+    description: "The Cirebon facility expands Korin\'s production reach into West Java, supporting overflow capacity and specialized production lines. It handles select injection and sheet processes with the same quality standards maintained across both plants.",
     heroImage: "/area-mesin-injection-tampak-atas (1).jpg",
     gallery: [
       { src: "/area-mesin-injection-tampak-atas (1).jpg", alt: "Cirebon production floor aerial view" },
@@ -233,3 +233,9 @@ export const footerProducts = [
 ];
 
 export const facilitiesImages = facilities[0].gallery.map((g) => ({ src: g.src, alt: g.alt }));
+'''
+
+with open('/sessions/awesome-magical-bohr/mnt/korin-company-profile/content.ts', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("Done. Lines:", content.count('\\n'))
