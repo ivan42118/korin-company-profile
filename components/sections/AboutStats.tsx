@@ -9,8 +9,10 @@ export function AboutStats() {
       <section id="stats" className="stats-section">
         <div className="section-shell">
           <Reveal className="stats-section__header">
-            <p className="label">Manufacturing Snapshot</p>
-            <h2>Built for precise production.</h2>
+            <div>
+              <p className="label">Manufacturing Snapshot</p>
+              <h2>Built for precise production.</h2>
+            </div>
             <p>
               A quick look at Korin&apos;s production capacity, process coverage, quality control, and response rhythm.
             </p>
@@ -32,15 +34,33 @@ export function AboutStats() {
       </section>
 
       <section id="about" className="about-section">
-        <Reveal className="section-shell about-copy">
-          <p className="label">About Us</p>
-          <SplitHeadline text="Precision manufacturing for a demanding world." />
-          <p>
-            PT Korin Technomic is a specialized manufacturer of plastic injection components, serving the footwear,
-            industrial, and consumer goods sectors across Indonesia and beyond. With state-of-the-art machinery and a
-            skilled engineering team, we deliver components that meet demanding specifications.
-          </p>
-          <a href="#machines" className="text-link">View Machines <span>-&gt;</span></a>
+        <Reveal className="section-shell about-grid">
+          <div className="about-grid__lead">
+            <p className="label">About Us</p>
+            <SplitHeadline text="Precision manufacturing for a demanding world." />
+          </div>
+          <div className="about-grid__body">
+            <p>
+              PT Korin Technomic is a specialized manufacturer of plastic injection components, serving the footwear,
+              industrial, and consumer goods sectors across Indonesia and beyond. With state-of-the-art machinery and a
+              skilled engineering team, we deliver components that meet demanding specifications.
+            </p>
+            <div className="about-grid__facts">
+              <div>
+                <strong>1999</strong>
+                <span>Established</span>
+              </div>
+              <div>
+                <strong>2</strong>
+                <span>Production plants</span>
+              </div>
+              <div>
+                <strong>10+</strong>
+                <span>Machine types</span>
+              </div>
+            </div>
+            <a href="#machines" className="text-link">View Machines <span>-&gt;</span></a>
+          </div>
         </Reveal>
       </section>
     </>
