@@ -4,24 +4,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { facilities } from "../../content";
-import { Lightbox } from "../ui/Lightbox";
 import { Reveal } from "../ui/Reveal";
 import { SplitHeadline } from "../ui/SplitHeadline";
 
 export function FacilitiesSection() {
   const [activeTab, setActiveTab] = useState(0);
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   const facility = facilities[activeTab];
-  const images = facility.gallery;
-
-  const next = () =>
-    setLightboxIndex((i) => (i === null ? 0 : (i + 1) % images.length));
-  const prev = () =>
-    setLightboxIndex((i) => (i === null ? 0 : (i - 1 + images.length) % images.length));
 
   return (
     <section id="facilities" className="facilities-section">
@@ -44,10 +36,7 @@ export function FacilitiesSection() {
               role="tab"
               aria-selected={activeTab === index}
               className={`facility-tab ${activeTab === index ? "facility-tab--active" : ""}`}
-              onClick={() => {
-                setActiveTab(index);
-                setLightboxIndex(null);
-              }}
+              onClick={() => setActiveTab(index)}
             >
               <span className="facility-tab__label">{f.label}</span>
               <span className="facility-tab__name">{f.name}</span>
@@ -79,34 +68,7 @@ export function FacilitiesSection() {
             <address className="facility-hero__address">{facility.address}</address>
           </div>
         </div>
-
-        <div className="section-shell facility-gallery">
-          {images.slice(1).map((image, index) => (
-            <button
-              key={image.src}
-              className="gallery-tile"
-              onClick={() => setLightboxIndex(index + 1)}
-              aria-label={`Open ${image.alt}`}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(max-width: 768px) 92vw, 30vw"
-                className="object-cover"
-              />
-            </button>
-          ))}
-        </div>
       </motion.div>
-
-      <Lightbox
-        images={images}
-        activeIndex={lightboxIndex}
-        onClose={() => setLightboxIndex(null)}
-        onPrev={prev}
-        onNext={next}
-      />
     </section>
   );
 }

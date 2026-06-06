@@ -66,6 +66,15 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.06 }}
+              >
+                <Link href="/#contact" className="btn-primary mobile-menu__cta" onClick={() => setOpen(false)}>
+                  Start Inquiry <span aria-hidden="true">-&gt;</span>
+                </Link>
+              </motion.div>
             </nav>
           </motion.div>
         )}

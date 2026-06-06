@@ -180,10 +180,10 @@ p {
 .step-number {
   color: var(--color-muted);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
-  letter-spacing: 0.12em;
-  line-height: 1;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
   text-transform: uppercase;
 }
 
@@ -375,16 +375,16 @@ p {
 .brand strong {
   color: var(--color-secondary);
   font-family: var(--font-body), sans-serif;
-  font-size: 1.38rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
 .brand small {
   color: var(--color-text);
   font-family: var(--font-mono), monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.42em;
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
 }
 
 .navbar:not(.navbar--scrolled) .brand strong,
@@ -447,25 +447,39 @@ p {
   position: fixed;
   inset: 0;
   z-index: 1001;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 96px 24px 40px;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(24px);
 }
 
 .mobile-menu nav {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.1rem;
+  width: 100%;
+  max-width: 520px;
   text-align: center;
 }
 
 .mobile-menu a {
   color: var(--color-text);
   font-family: var(--font-din), var(--font-display), "Arial Narrow", sans-serif;
-  font-size: clamp(44px, 12vw, 82px);
+  font-size: clamp(40px, 11vw, 72px);
   font-weight: 900;
   line-height: 0.95;
   text-transform: uppercase;
+}
+
+.mobile-menu .mobile-menu__cta {
+  width: 100%;
+  margin-top: 1rem;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .mobile-menu__close {
@@ -530,10 +544,10 @@ p {
 
 .hero-label {
   margin-bottom: 20px;
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.78);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.15em;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -573,7 +587,7 @@ p {
   z-index: 2;
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -1095,8 +1109,8 @@ p {
   margin-bottom: 24px;
   color: var(--color-muted);
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  letter-spacing: 0.1em;
 }
 
 .workflow-step-item {
@@ -1338,10 +1352,10 @@ p {
 .contact-info span {
   display: block;
   margin-top: 0.8rem;
-  color: rgba(255, 255, 255, 0.56);
+  color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1368,10 +1382,10 @@ p {
 }
 
 .field span {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.82);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -1645,6 +1659,20 @@ p {
     --section-x: 20px;
   }
 
+  html {
+    scroll-padding-top: 82px;
+  }
+
+  /* Tighter vertical rhythm on phones */
+  .stats-section,
+  .about-section,
+  .products-section,
+  .machines-section,
+  .facilities-section,
+  .product-categories-section {
+    padding-block: clamp(3.25rem, 12vw, 5rem);
+  }
+
   .hero-ctas,
   .footer__bottom {
     flex-direction: column;
@@ -1656,26 +1684,46 @@ p {
     width: 100%;
   }
 
+  /* Keep denser 2-up grids on mobile instead of single column */
   .stats-section__grid,
+  .machines-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
   .products-grid,
-  .machines-grid,
-  .facility-gallery,
   .contact-info,
   .footer__grid {
     grid-template-columns: 1fr;
   }
 
-  .product-card,
-  .machine-card {
+  .product-card {
     min-height: 360px;
   }
 
+  .machine-card {
+    min-height: 250px;
+  }
+
+  .machine-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .machine-card p {
+    font-size: 13px;
+  }
+
   .stat-card {
-    min-height: 280px;
+    min-height: 220px;
+    padding: 1.1rem;
   }
 
   .stat-card strong {
-    font-size: clamp(3.4rem, 18vw, 5.2rem);
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .stat-card p {
+    font-size: 13px;
   }
 
   .workflow-step {
@@ -1683,11 +1731,24 @@ p {
   }
 
   .facility-hero {
-    min-height: 440px;
+    min-height: 420px;
   }
 
+  .facility-hero__overlay h3 {
+    font-size: 1.15rem;
+  }
+
+  /* Show KORIN wordmark on mobile, hide only the small descriptor */
   .brand span {
+    display: grid;
+  }
+
+  .brand small {
     display: none;
+  }
+
+  .brand strong {
+    font-size: 1.3rem;
   }
 }
 
@@ -1695,14 +1756,14 @@ p {
 
 .tag {
   display: inline-block;
-  padding: 3px 10px;
+  padding: 4px 11px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-muted);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1767,8 +1828,8 @@ p {
 .facility-tab__label {
   color: var(--color-muted);
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -2236,13 +2297,13 @@ p {
 }
 
 .filter-pill {
-  padding: 0.5rem 1.1rem;
+  padding: 0.55rem 1.2rem;
   border: 1px solid var(--color-border);
   background: transparent;
   color: var(--color-muted);
   font-family: var(--font-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font-size: 12.5px;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   cursor: pointer;
   transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
@@ -2430,7 +2491,15 @@ p {
 
 @media (max-width: 720px) {
   .product-categories-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .category-card__illustration {
+    max-width: 120px;
   }
 
   .machines-index-grid {
@@ -2461,8 +2530,14 @@ p {
 
 @media (max-width: 480px) {
   .machine-products-grid,
-  .products-catalog-grid {
+  .products-catalog-grid,
+  .product-categories-grid,
+  .machines-grid {
     grid-template-columns: 1fr;
+  }
+
+  .machine-card {
+    min-height: 320px;
   }
 }
 
