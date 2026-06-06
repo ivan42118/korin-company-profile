@@ -42,16 +42,36 @@ export function ContactSection() {
     setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTouched({ name: true, company: true, email: true, productType: true, message: true });
     if (Object.values(errors).some(Boolean)) return;
     setLoading(true);
-    window.setTimeout(() => {
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          subject: `New Inquiry from ${form.name} — ${form.company}`,
+          from_name: form.name,
+          ...form,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+        setForm(initialForm);
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (err) {
+      console.error("Form submission error:", err);
+      alert("Gagal mengirim pesan. Silakan coba lagi atau hubungi kami via email.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-      setForm(initialForm);
-    }, 850);
+    }
   };
 
   return (
@@ -64,7 +84,8 @@ export function ContactSection() {
             Tell us about your requirements. Our engineering team will get back to you within 24 hours.
           </p>
           <div className="contact-info">
-            <ContactInfo icon={<MapPin size={20} />} label="Address" value={site.address} />
+            <ContactInfo icon={<MapPin size={20} />} label="Tangerang" value={site.address} />
+            <ContactInfo icon={<MapPin size={20} />} label="Cirebon" value={site.addressCirebon} />
             <ContactInfo icon={<Mail size={20} />} label="Email" value={site.email} />
             <ContactInfo icon={<Phone size={20} />} label="Phone" value={site.phone} />
             <ContactInfo icon={<Clock size={20} />} label="Working Hours" value={site.hours} />

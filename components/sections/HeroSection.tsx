@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { site } from "../../content";
 
 type HeroSectionProps = {
   videoSrc?: string;
@@ -23,7 +24,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          EST.1999 - PRECISION MANUFACTURING
+          EST.{site.estYear} - PRECISION MANUFACTURING
         </motion.p>
 
         <motion.h1
@@ -55,7 +56,7 @@ export function HeroSection({ videoSrc = "/videos/korin-hero.mp4" }: HeroSection
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.75 }}
         >
-          <a href="#capabilities" className="btn-primary">
+          <a href="#machines" className="btn-primary">
             View Capabilities -&gt;
           </a>
           <a href="#contact" className="btn-secondary">

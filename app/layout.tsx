@@ -45,7 +45,44 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "PT Korin Technomic | Precision Plastic Injection Manufacturing",
   description:
-    "PT Korin Technomic is an Indonesian plastic injection molding manufacturer for footwear components, industrial parts, synthetic rattan, and mass production programs.",
+    "PT Korin Technomic adalah produsen komponen alas kaki dan injection molding plastik presisi dari Indonesia. Melayani produksi massal, cetakan, dan komponen footwear sejak 1999.",
+  keywords: [
+    "plastic injection molding",
+    "footwear components",
+    "heel counter",
+    "toe cap",
+    "EVA components",
+    "synthetic rattan",
+    "PT Korin Technomic",
+    "manufacturing Indonesia",
+    "komponen sepatu",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    siteName: "PT Korin Technomic",
+    title: "PT Korin Technomic | Precision Plastic Injection Manufacturing",
+    description:
+      "Produsen komponen alas kaki & injection molding plastik presisi dari Indonesia. Injection, EVA, braiding, printing — satu ekosistem produksi terintegrasi.",
+    images: [
+      {
+        url: "/halaman_depan_gerbang_tangerang.jpg",
+        width: 1200,
+        height: 630,
+        alt: "PT Korin Technomic — Factory Gate Tangerang",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PT Korin Technomic | Precision Plastic Injection Manufacturing",
+    description: "Produsen komponen alas kaki & injection molding plastik presisi dari Indonesia.",
+    images: ["/halaman_depan_gerbang_tangerang.jpg"],
+  },
+  icons: {
+    icon: "/logo-korin.png",
+    apple: "/logo-korin.png",
+  },
 };
 
 export default function RootLayout({
@@ -54,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${din.variable} ${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
+    <html lang="id" className={`${din.variable} ${barlowCondensed.variable} ${barlow.variable} ${spaceMono.variable}`}>
       <body>{children}</body>
     </html>
   );

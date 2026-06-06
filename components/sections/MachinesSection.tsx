@@ -12,7 +12,7 @@ export function MachinesSection() {
         <Reveal className="section-heading section-heading--split">
           <div>
             <p className="label">Manufacturing Capabilities</p>
-            <SplitHeadline text="10 Machines. One Complete Process." />
+            <SplitHeadline text="10+ Machines. One Complete Process." />
           </div>
           <p>
             Injection, EVA, braiding, printing, extrusion, and finishing capabilities are organized into one integrated

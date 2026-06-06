@@ -43,7 +43,7 @@ export function Footer() {
         </div>
       </div>
       <div className="section-shell footer__bottom">
-        <span>© 2026 PT Korin Technomic. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} PT Korin Technomic. All rights reserved.</span>
         <em>Crafted with precision.</em>
       </div>
     </footer>

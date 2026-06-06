@@ -5,8 +5,10 @@ import { ContactSection } from "../components/sections/ContactSection";
 import { FacilitiesSection } from "../components/sections/FacilitiesSection";
 import { HeroSection } from "../components/sections/HeroSection";
 import { MachinesSection } from "../components/sections/MachinesSection";
+import { ProductionFlowSection } from "../components/sections/ProductionFlowSection";
 import { ProductsSection } from "../components/sections/ProductsSection";
 import { LenisProvider } from "../components/ui/LenisProvider";
+import { MarqueeText } from "../components/ui/MarqueeText";
 import { PageCurtain } from "../components/ui/PageCurtain";
 import { ScrollProgress } from "../components/ui/ScrollProgress";
 import { site } from "../content";
@@ -20,8 +22,10 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection videoSrc={site.heroVideoSrc} />
+        <MarqueeText />
         <AboutStats />
         <MachinesSection />
+        <ProductionFlowSection />
         <ProductsSection />
         <FacilitiesSection />
         <ContactSection />

@@ -17,6 +17,7 @@ import {
 
 export const site = {
   name: "PT Korin Technomic",
+  estYear: "1999",
   email: "info@korintechnomic.com",
   phone: "(021) 5986501",
   address: "Desa Cukanggalih RT.04 RW.02, Kec. Curug, Kab. Tangerang, Banten",
